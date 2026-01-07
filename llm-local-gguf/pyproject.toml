@@ -1,0 +1,17 @@
+[project]
+name = "llm-local-gguf"
+version = "0.2"
+description = "Run models distributed as GGUF files (fork of llm-gguf)"
+authors = [{name = "Simon Willison"}, {name = "Lifepillar"}]
+license = {text = "Apache-2.0"}
+classifiers = [
+    "License :: OSI Approved :: Apache Software License"
+]
+dependencies = [
+    "httpx",
+    "llm",
+    "llama-cpp-python",
+]
+
+[project.entry-points.llm]
+local_gguf = "llm_local_gguf"

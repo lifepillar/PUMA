@@ -1,0 +1,15 @@
+## LANGUAGE MODEL OUTPUT
+{{ response }}
+## SCORE
+{% if fitness > 0 %}
+{{ fitness }}
+{% else %}
+Unavailable
+{% endif %}
+## OBJECTIVE
+{{ goal }}
+Suggest improvements and formulate a new prompt. FORMAT:
+{
+  "improvement": ...,
+  "prompt": ...
+}
