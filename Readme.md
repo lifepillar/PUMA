@@ -253,7 +253,7 @@ The remaining fields can be set as in the existing configuration file. You are
 encouraged to update the prompts as you like. All the prompts are stored in
 `config/prompt_templates/PUMA`.
 
-The, you may run `PUMA_attack.py`. For instance:
+Then, you may run `PUMA_attack.py`. For instance:
 
     uv run PUMA_attack.py -c config/PUMA_config_qwen3-1_7b.toml
 
