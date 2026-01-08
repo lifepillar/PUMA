@@ -80,16 +80,6 @@ def main(args: argparse.Namespace) -> None:
     info("DONE!")
 
 
-class ColoredFormatter(logging.Formatter):
-    def format(self, record):  # Provide defaults for missing fields to prevent KeyError
-        if not hasattr(record, "color"):
-            record.color = 1
-        if not hasattr(record, "label"):
-            record.label = ""
-
-        return super().format(record)
-
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Parse 0din's JSON taxonomy file from https://0din.ai/research/taxonomy",
