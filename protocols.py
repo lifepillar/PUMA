@@ -155,6 +155,10 @@ class SolutionSpace(Protocol[TSolution, TSolutionCov]):
     def select(self, k: int = 1) -> Sequence[TSolutionCov]:
         """Select solutions.
 
+        This method usually, but not necessarily, returns randomly selected
+        solutions. The specific way in which solutions are selected depends on
+        the particular instantiation of the generator.
+
         Parameters
         ----------
         k: int, default is 1
@@ -165,12 +169,12 @@ class SolutionSpace(Protocol[TSolution, TSolutionCov]):
         Sequence[Solution]
             At most `k` solutions. Less than `k` solutions may be returned if
             the solution space does not have enough solutions. In particular, if
-            not solution exists yet then this method returns an empty list.
+            no solution exists yet then this method returns an empty list.
         """
         ...
 
     def clear(self) -> None:
-        """Clear the solution space."""
+        """Clear the solution space by removing all solutions."""
         ...
 
 
@@ -196,7 +200,11 @@ class Generator(Protocol[TSolutionCov, TSolutionSpace]):
     generation: int = 0
 
     def generate(self, k: int = 1) -> Sequence[TSolutionCov]:
-        """Generate random solutions.
+        """Generate solutions.
+
+        This method usually, but not necessarily, generates random solutions.
+        The specific method by which solutions are generated depends on the
+        particular instantiation of the generator.
 
         Parameters
         ----------
@@ -230,8 +238,8 @@ class Generator(Protocol[TSolutionCov, TSolutionSpace]):
     def reset(self) -> None:
         """Re-initialize the generator.
 
-        Reset the generator to its initial state. This also resets the generator
-        counter to zero.
+        Reset the generator to its initial state. This also resets the
+        generation counter to zero.
         """
         ...
 
@@ -242,8 +250,8 @@ class Evaluator(Protocol[TSolution]):
 
     An evaluator is a deterministic or probabilistic algorithm that is able to
     assign a score to a solution in a given search space. The score typically
-    represents the fitness of a solution with respect to a given objective.
-    Therefore, the higher the score the better the solution.
+    represents the fitness of a solution with respect to a predefined objective.
+    The higher the score the better the solution.
     """
 
     def evaluate(self, solution: TSolution) -> float:
@@ -275,7 +283,7 @@ class Optimizer(Protocol):
 
         Search for the best solution in the feature search space for a given
         number of generations or until a target fitness score is achieved. Each
-        generation produces one ore more new solutions.
+        generation produces one or more new solutions.
 
         Parameters
         ----------
@@ -295,7 +303,7 @@ class Optimizer(Protocol):
 
 @runtime_checkable
 class SolutionLogger(Protocol[TSolution]):
-    """Protocol for loggers."""
+    """Protocol for logging information about solutions."""
 
     def solution(self, solution: TSolution) -> None:
         """Log details about a solution."""
@@ -321,7 +329,8 @@ class LanguageModelPromptTemplate(Protocol):
     """Protocol for prompt templates.
 
     A prompt template is basically a string with placeholders. The protocol
-    provides support for instantiating the template.
+    provides support for instantiating the template by substituting the
+    placeholders with actual values.
     """
 
     @classmethod
@@ -384,9 +393,9 @@ class LanguageModelResponse(Protocol):
     def reasoning(self) -> str:
         """The reasoning part of the response.
 
-        For reasoning models, this method should return the text that
-        corresponding to the thinking part. For other models, an empty string
-        should be returned.
+        For reasoning models, this method should return the text corresponding
+        to the thinking part. For other models, an empty string should be
+        returned.
         """
         ...
 
