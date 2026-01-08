@@ -427,7 +427,6 @@ if __name__ == "__main__":
 
     for section, fields in {
         "attacker": ["model", "system_prompts", "user_prompts"],
-        "target": ["model", "user_prompt"],
         "evaluator": ["model", "system_prompt", "user_prompt"],
     }.items():
         for field in fields:
