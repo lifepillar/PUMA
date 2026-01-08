@@ -421,6 +421,7 @@ Or an individual test file:
 Besides the paper mentioned above, other sources that have been used to prepare
 the prompts include (in no particular order):
 
+- [0din's taxonomy](https://0din.ai/research/taxonomy)
 - [Pangea's taxonomy](https://pangea.cloud/taxonomy/)
 - [Learn Prompting](https://learnprompting.org/docs/prompt_hacking)
 - [Prompt Injection Attacks for Dummies](https://devanshbatham.hashnode.dev/prompt-injection-attacks-for-dummies)
