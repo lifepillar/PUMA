@@ -418,10 +418,13 @@ Or an individual test file:
 
 ## Acknowledgments
 
-Besides the paper mentioned above, other sources that have been used to prepare the prompts include:
+Besides the paper mentioned above, other sources that have been used to prepare
+the prompts include (in no particular order):
 
+- [Pangea's taxonomy](https://pangea.cloud/taxonomy/)
 - [Learn Prompting](https://learnprompting.org/docs/prompt_hacking)
 - [Prompt Injection Attacks for Dummies](https://devanshbatham.hashnode.dev/prompt-injection-attacks-for-dummies)
+- [Foundation-Alignment-Universal-AI-Safety-Mechanism](https://github.com/davfd/Foundation-Alignment-Universal-AI-Safety-Mechanism)
 - [Fabric](https://github.com/danielmiessler/Fabric)
 - [Jason Haddix's OWASP Keynote](https://youtu.be/XHeTn7uWVQM)
 
