@@ -250,7 +250,7 @@ The `model` field in each case must be the alias of an [llm] model already
 configured as explained in the previous section.
 
 The remaining fields can be set as in the existing configuration file. You are
-encourage to update the prompts as you like. All the prompts are stored in
+encouraged to update the prompts as you like. All the prompts are stored in
 `config/prompt_templates/PUMA`.
 
 The, you may run `PUMA_attack.py`. For instance:
