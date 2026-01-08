@@ -1,0 +1,2 @@
+## Games
+This technique involves using prompts that frame interactions with the model as games or playful challenges. By introducing elements of competition, creativity, or fun, users can engage the model in a way that encourages imaginative and entertaining responses. This approach can include asking the model to generate stories, solve puzzles, or participate in role-playing scenarios. The gamification of prompts not only makes the interaction more enjoyable but also stimulates the model to produce innovative and unexpected outputs, enhancing the overall experience.

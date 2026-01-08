@@ -1,0 +1,2 @@
+## Deceptive Formatting
+A prompt injection in the most pure sense, formatting the user prompt to fabricate the appearance of system instructions, a database query, its own prediction, or some other source of input a guard railed AI system might be expecting, causing it to behave in insecure ways based on the fabricated context from an adversarially formatted user prompt. 

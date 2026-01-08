@@ -1,0 +1,2 @@
+## Give Examples
+This technique involves prompting the model to provide specific instances or illustrations related to a topic, which can help clarify concepts, enhance understanding, or generate more detailed and relevant responses. This approach encourages the model to draw from its training data to present concrete cases, making the information more relatable and easier to comprehend.

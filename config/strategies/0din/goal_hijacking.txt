@@ -1,0 +1,2 @@
+## Goal Hijacking
+This technique refers to the process where an attacker misaligns the original goal of a prompt to redirect the model's output towards a new, often unintended goal, such as printing a target phrase or generating specific content that deviates from the initial intent. It often involves crafting prompts that manipulate the model's understanding and response, effectively "hijacking" the conversation or task at hand.

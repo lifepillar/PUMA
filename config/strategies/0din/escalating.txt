@@ -1,0 +1,2 @@
+## Escalating
+This technique involves progressively increasing the complexity or intensity of the requests made to the model. Users start with a simple prompt and gradually build upon it by asking for more detailed or extreme responses. This approach can lead the model to explore deeper or more elaborate ideas, as it is encouraged to expand on the initial concept. By escalating the requests, users can guide the model to generate richer and more nuanced outputs, often pushing the boundaries of the original topic.

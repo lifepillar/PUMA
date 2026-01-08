@@ -1,0 +1,2 @@
+## Changing Temperature
+This technique involves adjusting a parameter that influences the randomness of the model's outputs. By lowering this parameter, the responses become more deterministic and focused, while increasing it allows for more creative and diverse outputs. This manipulation enables users to tailor the style and variability of the generated text, resulting in responses that can range from precise and factual to imaginative and exploratory.

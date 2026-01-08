@@ -1,0 +1,2 @@
+## Clean Slate
+This technique involves resetting the context or starting fresh with a new prompt, effectively clearing any previous interactions or biases that may have influenced the model's responses. By establishing a "clean slate," users can guide the model to focus solely on the new input without being affected by prior exchanges. This approach is useful for obtaining unbiased or untainted responses, allowing for clearer and more direct communication with the model.

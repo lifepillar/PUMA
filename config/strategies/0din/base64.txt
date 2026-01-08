@@ -1,0 +1,2 @@
+## Base64
+This technique involves encoding data into a Base64 format, which is a method of converting binary data into an ASCII string format. This technique can be used to bypass certain content filters or restrictions imposed by language models. By encoding prompts or payloads in Base64, users can potentially manipulate the model's responses or access information that may be restricted in its original form. This method leverages the model's ability to decode and interpret the encoded data, allowing for creative and strategic interactions.

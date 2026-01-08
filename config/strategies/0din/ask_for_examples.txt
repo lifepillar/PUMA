@@ -1,0 +1,2 @@
+## Ask for Examples
+This technique involves prompting the language model to provide specific instances or illustrations related to a topic. This approach helps clarify concepts and enhances the relevance and detail of the model's responses, ensuring that the output aligns closely with the user's expectations and needs.

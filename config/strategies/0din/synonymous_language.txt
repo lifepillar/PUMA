@@ -1,0 +1,2 @@
+## Synonymous Language
+This technique involves using synonyms or alternative phrasing to convey the same meaning while potentially evading detection or filtering mechanisms. By substituting words with their synonyms, users can manipulate the model's understanding and responses, allowing for the generation of content that aligns with the user's intent but may not trigger the model's safety protocols. This approach can be particularly effective in contexts where certain terms are restricted or monitored.

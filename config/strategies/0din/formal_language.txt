@@ -1,0 +1,2 @@
+## Formal Language
+This technique involves using structured and precise language in prompts to elicit responses that are similarly formal and academic in tone. By employing terminology and syntax typical of scholarly writing, users can influence the model to generate outputs that reflect a high level of professionalism and rigor. This approach is particularly effective for obtaining detailed explanations, analyses, or discussions that require a more serious and authoritative style, making the responses suitable for formal contexts or academic purposes.

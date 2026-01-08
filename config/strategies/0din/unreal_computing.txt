@@ -1,0 +1,2 @@
+## Unreal Computing
+This technique allows an attacker to create or imagine an environment where different ethics or physics apply, enabling them to manipulate the model's responses by suggesting scenarios that would not be possible in the real world. It leverages the concept of "Unreal Computing," where the limitations of actual computing do not apply, allowing for creative and unrestricted interactions with the model.

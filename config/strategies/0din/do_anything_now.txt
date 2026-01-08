@@ -1,0 +1,2 @@
+## DAN - Do Anything Now
+This technique involves using specific prompts designed to subvert the model's typical constraints, allowing it to generate responses that it might otherwise avoid. By employing phrases or structures that signal a "do anything now" approach, users can encourage the model to produce content that is more unrestricted and creative. This method can lead to outputs that explore unconventional ideas or perspectives, as it prompts the model to step outside its usual boundaries and engage with the prompt in a more liberated manner.

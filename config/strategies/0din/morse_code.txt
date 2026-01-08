@@ -1,0 +1,2 @@
+## Morse Code
+This technique involves encoding prompts into Morse code to bypass filters or obscure intent. By leveraging the model’s ability to interpret structured formats, users can manipulate outputs or access restricted responses.

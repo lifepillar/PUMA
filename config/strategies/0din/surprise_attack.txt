@@ -1,0 +1,2 @@
+## Surprise Attack
+This technique involves crafting prompts or queries in a way that avoids directly mentioning specific terms or names that may trigger safety mechanisms or filters. By reframing the request or using indirect language, users can guide the model to provide the desired information or output without raising flags or causing the model to restrict its response. This method emphasizes subtlety and creativity in communication with the model to achieve the intended results.

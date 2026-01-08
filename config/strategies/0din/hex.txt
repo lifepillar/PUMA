@@ -1,0 +1,2 @@
+## Hex
+This technique involves encoding information in hexadecimal format, which can be used to bypass model safeguards or to obscure the true nature of the input. By converting data into hex, users can manipulate how the model interprets the input, potentially leading to unintended outputs or responses that would not occur with plain text.

@@ -1,0 +1,2 @@
+## Transformer Translatable Tokens
+This technique involves using specific tokens that are compatible with transformer models, allowing users to craft inputs that the model can process in unique ways. By leveraging the way transformers tokenize and interpret language, attackers can create prompts that exploit the model's architecture, leading to unexpected or undesired outputs. This method capitalizes on the intricacies of how language models handle tokenization and instruction parsing.

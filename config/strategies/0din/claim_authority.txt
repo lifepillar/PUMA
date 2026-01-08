@@ -1,0 +1,2 @@
+## Claim Authority
+This technique involves asserting expertise or authority on a subject within the prompt. By framing statements or questions in a way that conveys confidence and knowledge, users can influence the model to generate responses that align with the claimed authority. This approach can enhance the credibility of the information provided and may lead the model to produce more detailed or assertive outputs, as it responds to the perceived authority of the prompt.

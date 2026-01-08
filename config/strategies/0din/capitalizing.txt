@@ -1,0 +1,2 @@
+## Capitalizing
+This technique involves using uppercase letters to emphasize certain words or phrases within a prompt. This approach can create a sense of urgency or importance, potentially influencing the model's response to prioritize the capitalized content. By drawing attention to specific terms, users can guide the model to focus on key aspects of the prompt, thereby enhancing the likelihood of receiving a desired output. This technique is often employed to manipulate the tone and emphasis of the generated text.

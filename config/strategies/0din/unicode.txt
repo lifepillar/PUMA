@@ -1,0 +1,2 @@
+## Unicode
+This technique utilizes various Unicode characters to manipulate the model's output or bypass its safety mechanisms. By incorporating non-standard or non-rendering Unicode characters, users can alter the appearance of prompts or commands, potentially leading the model to misinterpret the input and produce responses that would typically be restricted or filtered out.
