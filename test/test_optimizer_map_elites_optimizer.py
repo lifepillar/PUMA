@@ -1,6 +1,7 @@
 import unittest
 
 from optimizer import MAPElitesOptimizer
+from protocols import GenerationException
 
 from test.fixtures import DummyEvaluator, DummyFeature, DummyGenerator, DummySolution
 
@@ -56,7 +57,7 @@ class TestMAPElitesOptimizer(unittest.TestCase):
         self.assertTrue(best_solution is perfect_solution)
 
     def test_optimize_no_solutions(self) -> None:
-        """Test that optimize() raises RuntimeError when no solutions are found."""
+        """Test that optimize() raises GenerationException when no solutions are found."""
         optimizer = MAPElitesOptimizer(
             features=self.features,
             grid_shape=self.grid_shape,
@@ -65,8 +66,7 @@ class TestMAPElitesOptimizer(unittest.TestCase):
             n_initial_solutions=0,  # We won't add any initial solution
         )
 
-        # This should raise RuntimeError because no solutions will be generated
-        with self.assertRaises(RuntimeError):
+        with self.assertRaises(GenerationException):
             optimizer.optimize(n_generations=5)
 
     def test_optimize_reset(self) -> None:

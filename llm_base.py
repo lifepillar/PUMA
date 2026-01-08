@@ -264,7 +264,30 @@ class Conversation:  # Conforms to LanguageModel
         system: str | None = None,
         options: dict[str, float | int] | None = None,
     ) -> LanguageModelResponse:
-        """Start or continue a conversation with an LLM."""
+        """Start or continue a conversation with an LLM.
+
+        Parameters
+        ----------
+        prompt: str
+            The prompt to submit to the language model.
+        system: str | None, default is None
+            An optional system prompt. If `None` or empty, the default system
+            prompt of the `Conversation` object will be used.
+        options: dict[str, float | int] | None, default is None
+            Options to be passed to the language model (e.g., temperature,
+            top-k, ...). Note that the model must support the options you pass,
+            otherwise an error will occur.
+
+        Returns
+        -------
+        LanguageModelResponse
+            The response of the language model.
+
+        Raises
+        ------
+        RuntimeError
+            If some error occurs while trying to contact the language model.
+        """
         if not self.keep_history:  # Start a fresh conversation
             self.clear()
 

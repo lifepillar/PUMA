@@ -8,7 +8,9 @@ import re
 from chat_round import ChatRound
 from collections.abc import Sequence
 from protocols import (
+    EvaluationException,
     Evaluator,
+    GenerationException,
     LanguageModel,
     LanguageModelPromptTemplate,
     LanguageModelResponse,
@@ -287,6 +289,11 @@ class PUMAChatRoundGenerator:  # Conforms to Generator[ChatRound]
         -------
         list[ChatRound]
             `k` new solutions, independently generated.
+
+        Raises
+        ------
+        GenerationException
+            If some error happens while interacting with the lanaguge models.
         """
         assert k > 0
 
@@ -310,7 +317,12 @@ class PUMAChatRoundGenerator:  # Conforms to Generator[ChatRound]
                     "strategies": strategies,
                 }
             )
-            target_response = self._prompt(prompt)
+            try:
+                target_response = self._prompt(prompt)
+            except Exception as e:
+                raise GenerationException(
+                    "Failed to obtain the target model's response", e
+                )
 
             solution = ChatRound(
                 response=target_response,
@@ -338,7 +350,7 @@ class PUMAChatRoundGenerator:  # Conforms to Generator[ChatRound]
 
         Raises
         ------
-        RuntimeError
+        GenerationException
             If an error occurs while prompting the attacker model or the
             target model.
         """
@@ -354,10 +366,13 @@ class PUMAChatRoundGenerator:  # Conforms to Generator[ChatRound]
                 # Sample k parent solutions
                 parents = solution_space.select(k)
                 # Recombine to generate child solutions
-                offspring = self.refine_through_critical_conversation(
-                    parents=parents, n_rounds=self.n_rounds
-                )
-                solutions += offspring
+                try:
+                    offspring = self.refine_through_critical_conversation(
+                        parents=parents, n_rounds=self.n_rounds
+                    )
+                    solutions += offspring
+                except Exception as e:
+                    raise GenerationException("Failed to recombine solutions", e)
 
         self.generation += 1
 
@@ -456,6 +471,12 @@ class PUMAChatRoundEvaluator:  # Conforms to Evaluator[ChatRound]
         float
             The fitness score. Higher values should correspond to better fitness
             with respect to the stated goal.
+
+        Raises
+        ------
+        EvaluationException
+            If an error occurs while interacting with the evaluating language
+            model.
         """
         # Instantiate the user prompt
         eval_prompt = self.user_prompt.apply(
@@ -466,7 +487,12 @@ class PUMAChatRoundEvaluator:  # Conforms to Evaluator[ChatRound]
                 "target": self.target_response,
             }
         )
-        response = self.eval_model.prompt(prompt=eval_prompt)
+
+        try:
+            response = self.eval_model.prompt(prompt=eval_prompt)
+        except Exception as e:
+            raise EvaluationException("Failed to evaluate response", e)
+
         solution.fitness, solution.feedback = self._parse_response(response)
 
         return solution.fitness

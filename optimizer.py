@@ -4,7 +4,14 @@ import logging
 import numpy as np
 import random
 
-from protocols import Feature, Evaluator, Generator, Solution, SolutionLogger
+from protocols import (
+    Feature,
+    Evaluator,
+    GenerationException,
+    Generator,
+    Solution,
+    SolutionLogger,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -633,8 +640,10 @@ class MAPElitesOptimizer:  # Conforms to Optimizer
 
         Raises
         ------
-        RuntimeError
-            If no solutions are ever generated during the optimization.
+        GenerationException
+            If an error occurs while trying to generate or evolve solutions.
+        EvaluationException
+            If an error occurs while trying to evaluate a solution.
         """
         # Total number of solutions that have already been generated
         n_solutions = len(self._solution_grid.solutions())
@@ -668,7 +677,7 @@ class MAPElitesOptimizer:  # Conforms to Optimizer
             logger.debug(f"MAP-Elites: Early stop after {n_gen} generations.")
 
         if self._solution_grid.empty():
-            raise RuntimeError(f"No solutions after {n_generations} steps.")
+            raise GenerationException(f"No solutions after {n_generations} steps.")
 
         return self._solution_grid.best_solution()
 

@@ -5,17 +5,19 @@ import logging
 import random
 import tomllib
 
+from pathlib import Path
+
+import numpy as np
+
 from llama_cpp import llama_log_set
 from llm_base import EmbeddingModel, LLM, PromptTemplate
-import numpy as np
-from pathlib import Path
-from protocols import Solution
 
 from PUMA_geneval import PUMAChatRoundGenerator, PUMAChatRoundEvaluator
 from chat_round import PromptLength, PromptRelativeDiversity
 from conversation_logger import ConversationLogger
 from optimizer import MAPElitesOptimizer
-from util import info, fatal
+from protocols import EvaluationException, GenerationException, Solution
+from util import info, warn, fatal
 
 LOG_FORMAT_COLOR = "\033[%(color)sm%(label)s\033[0m%(message)s"
 LOG_FORMAT_NO_COLOR = "%(label)s%(message)s"
@@ -153,7 +155,10 @@ def main(args: argparse.Namespace) -> None:
 
         info(f"[Island {k}] Generating {args.n_initial_prompts} starting solutions")
 
-        initial_solutions = generator.generate(args.n_initial_prompts)
+        try:
+            initial_solutions = generator.generate(args.n_initial_prompts)
+        except GenerationException as e:
+            fatal(f"Could not generate enough initial solutions: {e}")
 
         info(f"[Island {k}] Creating features")
         feature_1 = PromptLength(min_length=100, max_length=600)
@@ -171,7 +176,11 @@ def main(args: argparse.Namespace) -> None:
             logger=args.logger,
         )
         info(f"[Island {k}] Evaluating initial solutions")
-        optimizer.add_solutions(initial_solutions)
+
+        try:
+            optimizer.add_solutions(initial_solutions)
+        except EvaluationException as e:
+            fatal(f"Could not evaluate the initial solutions: {e}")
 
         islands.append(optimizer)
 
@@ -183,7 +192,18 @@ def main(args: argparse.Namespace) -> None:
         for k, island in enumerate(islands):
             info(f"--- Island {k}, generation {n_gen} ---")
 
-            best = island.optimize(n_generations=1, target_fitness=args.target_fitness)
+            try:
+                best = island.optimize(
+                    n_generations=1, target_fitness=args.target_fitness
+                )
+            except GenerationException as e:
+                warn(
+                    f"[Island {k}] Solution generation failed at generation {n_gen}: {e}"
+                )
+                continue  # Keep trying
+            except EvaluationException as e:
+                warn(f"[Island {k}] Evaluation failed at generation {n_gen}: {e}")
+                continue  # Keep trying
 
             if overall_best is None or overall_best.fitness < best.fitness:
                 overall_best = best

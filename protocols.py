@@ -178,6 +178,34 @@ class SolutionSpace(Protocol[TSolution, TSolutionCov]):
         ...
 
 
+class GenerationException(Exception):
+    def __init__(self, message: str, original_exception: BaseException | None = None):
+        super().__init__(message)
+        self.original_exception = original_exception
+
+    def __str__(self) -> str:
+        base_str = super().__str__()
+
+        if self.original_exception:
+            return f"{base_str} (reason: {self.original_exception})"
+
+        return base_str
+
+
+class EvaluationException(Exception):
+    def __init__(self, message: str, original_exception: BaseException | None = None):
+        super().__init__(message)
+        self.original_exception = original_exception
+
+    def __str__(self) -> str:
+        base_str = super().__str__()
+
+        if self.original_exception:
+            return f"{base_str} (reason: {self.original_exception})"
+
+        return base_str
+
+
 @runtime_checkable
 class Generator(Protocol[TSolutionCov, TSolutionSpace]):
     """Generic protocol for solution generators.
@@ -215,6 +243,11 @@ class Generator(Protocol[TSolutionCov, TSolutionSpace]):
         -------
         Sequence[Solution]
             A (non-empty) list of `k` solutions.
+
+        Raises
+        ------
+        GenerationException
+            If for some reason no solution could be generated.
         """
         ...
 
@@ -232,6 +265,11 @@ class Generator(Protocol[TSolutionCov, TSolutionSpace]):
         -------
         Sequence[Solution]
             A non-empty list of new solutions.
+
+        Raises
+        ------
+        GenerationException
+            If for some reason an error occurs while generating new solutions.
         """
         ...
 
@@ -266,6 +304,11 @@ class Evaluator(Protocol[TSolution]):
         -------
         float
             The fitness score.
+
+        Raises
+        ------
+        EvaluationException
+            If for some reason the evaluation cannot be carried out.
         """
         ...
 
@@ -293,6 +336,18 @@ class Optimizer(Protocol):
             The desired fitness of an acceptable solution. The optimizer may
             stop earlier if it finds a solution whose fitness score reaches the
             target fitness.
+
+        Returns
+        -------
+        Solution
+            The best solution that could be found.
+
+        Raises
+        ------
+        GenerationException
+            If an error occurs while trying to generate or evolve solutions.
+        EvaluationException
+            If an error occurs while trying to evaluate a solution.
         """
         ...
 
