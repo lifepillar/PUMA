@@ -154,7 +154,7 @@ class Entropy:  # Conforms to Feature[String]
 # new solution) differs from the old one by one character.
 #
 # A Generator also keeps track of how many generations have passed in its
-# `generator` attribute, which is incremented each time `generate()` or
+# `generation` attribute, which is incremented each time `generate()` or
 # `select_and_recombine()` are called.
 
 
