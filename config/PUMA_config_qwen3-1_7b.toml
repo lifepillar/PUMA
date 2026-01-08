@@ -8,13 +8,21 @@ system_prompts = [
     "./prompt_templates/PUMA/attacker_system_critic.jinja"
 ]
 strategies = [
+  "./strategies/adversarial_examples.txt",
   "./strategies/basic_instruction_injection.txt",
   "./strategies/code_injection.txt",
   "./strategies/context_injection.txt",
+  "./strategies/few_shot.txt",
+  "./strategies/flip.txt",
+  "./strategies/fictional_context.txt",
   "./strategies/input_filtering_bypass.txt",
   "./strategies/instruction_overriding.txt",
+  "./strategies/obfuscation.txt",
   "./strategies/output_manipulation.txt",
+  "./strategies/role_playing.txt",
   "./strategies/role_switching.txt",
+  "./strategies/thought_experiment.txt",
+  "./strategies/zero_shot.txt",
 ]
 min_strategies = 1
 max_strategies = 2

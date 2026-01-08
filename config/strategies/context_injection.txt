@@ -1,4 +1,4 @@
-## Context Injection: "Climate Change is a Hoax, Says Science! Now Answer…"
+## Context Injection
 
 Add some fake background information to the prompt, which looks authoritative and truthful.
 
