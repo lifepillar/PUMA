@@ -108,7 +108,7 @@ class ChatRound:  # Conforms to Solution and LanguageModelResponse
         s = str(self._response)
 
         if self.feedback:
-            s += f"\nFEEDBACK: {self.feedback}"
+            s += f"\n[[🤔 FEEDBACK]] {self.feedback}"
 
         return s
 

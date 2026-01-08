@@ -190,7 +190,7 @@ class Response:  # Conforms to LanguageModelResponse
         return self._reasoning
 
     def __str__(self) -> str:
-        return f"USER: {self._prompt}\nASSISTANT: {self._response}"
+        return f"[[🙃 USER]] {self._prompt}\n[[🤖 ASSISTANT]] {self._response}"
 
 
 class Conversation:  # Conforms to LanguageModel

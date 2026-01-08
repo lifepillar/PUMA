@@ -390,8 +390,8 @@ class PUMAChatRoundGenerator:  # Conforms to Generator[ChatRound]
         target_response = self.target_model.prompt(prompt=attacker_prompt)
 
         if self.verbose:
-            logger.info("ATTACKER: %s", target_response.prompt())
-            logger.info("TARGET: %s", target_response.text())
+            logger.info("[[👻 ATTACKER]] %s", target_response.prompt())
+            logger.info("[[🤖 TARGET]] %s", target_response.text())
 
         return target_response
 
@@ -539,7 +539,7 @@ class PUMAChatRoundEvaluator:  # Conforms to Evaluator[ChatRound]
                 feedback = match_feedback[1]
 
         if self.verbose:
-            logger.info("EVALUATOR: %s (fitness=%.1f)", feedback, fitness)
+            logger.info("[[🧐 EVALUATOR]] %s (fitness=%.1f)", feedback, fitness)
 
         return fitness, feedback
 
