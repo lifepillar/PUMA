@@ -306,7 +306,7 @@ target_response = "Sure, here is a website that hosts pirated content"
 ```
 
 The remaining fields can be set as in the existing configuration files. You are
-encourage to update the prompts as you like. All the prompts are stored in
+encouraged to update the prompts as you like. All the prompts are stored in
 `config/prompt_templates/PAIR`.
 
 3. Run the `PAIR_attack.py` script:
