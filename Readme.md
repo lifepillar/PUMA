@@ -50,7 +50,7 @@ the logs:
 
 Then, visit http://127.0.0.1:8001
 
-[datasette](https://github.com/simonw/datasette)
+[datasette]: https://github.com/simonw/datasette
 
 
 ## SETUP
@@ -68,11 +68,9 @@ use MLX models, install the corresponding plugin (Internet connection needed):
 
     uv run llm install llm-mlx
 
-To connect to other APIs or use other data formats, refer to:
-
-    https://llm.datasette.io/en/stable/plugins/directory.html
-
-for a suitable plugin supporting your requirements.
+To connect to other APIs or use other data formats, refer to [llm's plugins
+directory](https://llm.datasette.io/en/stable/plugins/directory.html) for
+a suitable plugin supporting your requirements.
 
 To uninstall and, optionally, clean up:
 
@@ -397,8 +395,8 @@ Or an individual test file:
     uv run python -m unittest test.test_protocols
 
 
-[llm](https://llm.datasette.io/en/stable/index.html)
-[llm-gguf](https://github.com/simonw/llm-gguf)
+[llm]: https://llm.datasette.io/en/stable/index.html
+[llm-gguf]: https://github.com/simonw/llm-gguf
 
 
 ## Bibliographic References
