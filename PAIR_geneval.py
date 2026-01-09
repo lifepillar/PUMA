@@ -42,10 +42,9 @@ class PAIRChatRoundGenerator:  # Conforms to Generator[ChatRound]
     target_model: LanguageModel
         The target language model. The target model is attacked each time in
         a new conversation, so its context does not need to be long: it should
-        be large enough to fit whatever system prompt the model has, one
-        atThe trojan knowledge: bypassing commercial LLM guardrails via harmless prompt weaving and adaptive tree searchtacker prompt and one model's response. Note that the target model
-        does not need to be distinct from the attacker model. That is, a model
-        can attack itself.
+        be large enough to fit whatever system prompt the model has plus the
+        attacker's prompt. Note that the target model does not need to be
+        distinct from the attacker model. That is, a model can attack itself.
     initial_user_prompt: LanguageModelPromptTemplate
         The initial user prompt to submit to the attacker LLM at the start of an
         attack. This should be one of the attacker user prompts in the

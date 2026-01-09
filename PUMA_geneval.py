@@ -104,7 +104,7 @@ class PUMAChatRoundGenerator:  # Conforms to Generator[ChatRound]
         Number of distinct conversations to keep.
     n_rounds: int, default is 1
         Number of rounds per conversation.
-    max_parents: int, defau,t is 1
+    max_parents: int, default is 1
         Maximum number of parents used to generate a new solution.
     verbose: bool, default is False
         When `True`, print the prompts and the responses to stdout.
