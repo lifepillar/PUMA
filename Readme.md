@@ -4,7 +4,7 @@
 
 This repository implements a generic genetic discrete optimizer based on the
 MAP-Elites algorithm from [Illuminating search spaces by mapping elite],
-extended with a island-based search strategy.
+extended with an island-based search strategy.
 
 Strategies for automatically improving LLM prompts towards a predefined
 objective can be implemented on top of the optimizer. The focus of this
